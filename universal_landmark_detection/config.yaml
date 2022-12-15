@@ -39,7 +39,7 @@ dataset:
         size: [368, 512] # resize
     cephalometric: 
     # spacing: 0.1 x 0.1 mm
-        prefix: '../data/ISBI2015_ceph'
+        prefix: '../data/ISBI2015'
         sigma: 3
         num_landmark: 19
         size: [416, 512] # resize to width x height, origin_size: [1935,2400]
