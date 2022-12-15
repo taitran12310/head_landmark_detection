@@ -1,7 +1,7 @@
 import numpy as np
-from skimage.measure import compare_psnr as PSNR
+from skimage.measure import peak_signal_noise_ratio as PSNR
 from skimage.measure import compare_ssim as SSIM
-from skimage.measure import compare_mse as MSE
+from skimage.measure import structural_similarity as MSE
 from .kit import norm, getPointsFromHeatmap
 
 
