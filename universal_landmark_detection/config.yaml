@@ -25,7 +25,8 @@ transform_params: # data_aug
 mix_step: 1 # mix_training batch step: 0 for no mix
 
 dataset:
-    name_list: [ 'cephalometric', 'hand', 'chest' ]
+    name_list: [ 'cephalometric']
+    # name_list: [ 'cephalometric', 'hand', 'chest' ]
     loss_weights: [1, 1, 1, ]
     batch_size_dic: # this will override that of data_loader in train stage
         hand: 4
