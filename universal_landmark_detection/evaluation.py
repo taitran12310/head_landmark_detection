@@ -13,7 +13,7 @@ import numpy as np
 from model.utils import mkdir, toYaml, dis2, colorRGB, getPointsFromHeatmap, get_config
 
 PATH_DIC = {
-    'cephalometric': '../data/ISBI2015/raw',
+    'cephalometric': './data/ISBI2015/raw',
     'hand': '../data/hand/jpg',
     'chest': '../data/chest/pngs',
 }
