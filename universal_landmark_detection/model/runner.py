@@ -51,7 +51,10 @@ class Runner(object):
                 loader_opts = self.opts.dataloader[s]
                 if s == 'train' and 'batch_size_dic' in d_opts:
                     loader_opts['batch_size'] = d_opts['batch_size_dic'][name]
-
+                print("d: ")
+                print(d)
+                print("loader_opts:")
+                print(loader_opts)
                 l = DataLoader(d, **loader_opts)
                 loader_list.append(l)
             setattr(self, s + '_dataset_list', dataset_list)
