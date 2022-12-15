@@ -18,8 +18,8 @@ class Cephalometric(data.Dataset):
         self.use_background_channel = use_background_channel
 
         self.pth_Image = os.path.join(prefix, 'raw')
-        self.pth_label_junior = os.path.join(prefix, '400_junior')
-        self.pth_label_senior = os.path.join(prefix, '400_senior')
+        self.pth_label_junior = os.path.join(prefix, 'AnnotationsByMD/400_junior')
+        self.pth_label_senior = os.path.join(prefix, 'AnnotationsByMD/400_senior')
 
         # file index
         files = [i[:-4] for i in sorted(os.listdir(self.pth_Image))]
