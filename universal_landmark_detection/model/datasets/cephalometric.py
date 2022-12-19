@@ -28,6 +28,7 @@ class Cephalometric(data.Dataset):
         # file index
         files = [i[:-4] for i in sorted(os.listdir(self.pth_Image))]
         n = len(files)
+        print("len files", n)
         if phase == 'train':
             self.indexes = files[:130]
         elif phase == 'validate':
