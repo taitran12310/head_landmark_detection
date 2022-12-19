@@ -99,7 +99,7 @@ def saveLabels(path, points, size):
             ratios = ['{:.4f}'.format(x/X) for x,X in zip(pt,size)]
             f.write(' '.join(ratios)+'\n')
 
-def evaluate(input_path, output_path, save_img=True, assigned=False, IS_DRAW_TEXT=False):
+def evaluate(input_path, output_path, save_img=False, assigned=False, IS_DRAW_TEXT=False):
     mkdir(output_path)
     dataset = os.path.basename(input_path).lower()
     image_path_pre = PATH_DIC[dataset]
@@ -209,11 +209,11 @@ if __name__ == "__main__":
     dic = {}
     pixel_dic = {}
     if not args.output:
-        output = os.path.join(args.input, 'eval')
+        output = os.path.join('.eval', args.input.replace('/', '_'))
     for d in os.listdir(args.input):
         inp = os.path.join(args.input, d)
         if os.path.isdir(inp):
-            phy_dis, pixel_dis = evaluate(inp, os.path.join(output, d), args.save_image //True,
+            phy_dis, pixel_dis = evaluate(inp, os.path.join(output, d), args.save_img,
                                           args.assigned, args.draw_text)
             phy_dis = np2py(phy_dis)
             pixel_dis = np2py(pixel_dis)

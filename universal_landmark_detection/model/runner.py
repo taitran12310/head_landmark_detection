@@ -122,8 +122,8 @@ class Runner(object):
         if os.path.isfile(self.opts.checkpoint):
             print('loading checkpoint:', self.opts.checkpoint)
             checkpoint = torch.load(self.opts.checkpoint)
-            self.start_epoch = checkpoint['epoch'] + 1
-            self.model.load_state_dict(checkpoint['model_state_dict'])
+            self.start_epoch = self.opts.epochs + 1
+            self.model.load_state_dict(checkpoint)
             get_learner()
         else:
             self.start_epoch = 0
@@ -274,12 +274,12 @@ class Runner(object):
                     f.write('{:03d},{:.6f},{:.6f}\n'.format(
                         epoch, self.train_loss, val_loss))
                 if (save_freq != 0 and epoch % save_freq == 0) or epoch == endEpoch:
-                    torch.save(data, os.path.join(checkpoint_dir, save_name))
+                    torch.save(self.model.state_dict(), os.path.join(checkpoint_dir, save_name))
                 if val_loss < self.best_loss:
                     self.best_loss = val_loss
                     dest = os.path.join(checkpoint_dir, 'best_' + save_name)
                     self.opts.checkpoint = dest
-                    torch.save(data, dest)
+                    torch.save(self.model.state_dict(), dest)
 
     def update_params(self, epoch, pbar):
         # to try: harmonic mean

@@ -1,3 +1,7 @@
 .DS_Store
 data/ISBI2015.zip
 data/.DS_Store
+data
+.venv
+.ipynb_checkpoints
+__pycache__
