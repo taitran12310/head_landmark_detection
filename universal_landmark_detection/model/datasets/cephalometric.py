@@ -11,11 +11,6 @@ from ..utils import gaussianHeatmap, transformer
 class Cephalometric(data.Dataset):
 
     def __init__(self, prefix, phase, transform_params=dict(), sigma=10, num_landmark=19, size=[640, 800], use_background_channel=False):
-        print("cephalometric.py - ___init__ -【START】")
-        print("prefix")
-        print(prefix)
-        print("phase")
-        print(phase)
         self.transform = transformer(transform_params)
         self.size = tuple(size)
         self.num_landmark = num_landmark
@@ -28,7 +23,7 @@ class Cephalometric(data.Dataset):
         # file index
         files = [i[:-4] for i in sorted(os.listdir(self.pth_Image))]
         n = len(files)
-        print("len files", n)
+        
         if phase == 'train':
             self.indexes = files[:130]
         elif phase == 'validate':

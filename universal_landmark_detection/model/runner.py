@@ -301,9 +301,6 @@ class Runner(object):
             print("loader")
             print(loader)
             for i, data_dic in enumerate(loader):
-                print("data_dic")
-                print(data_dic)
-
                 if isinstance(data_dic, tuple):
                     task_idx = data_dic[1]
                     data_dic = data_dic[0]
