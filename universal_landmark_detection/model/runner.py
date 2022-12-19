@@ -45,24 +45,12 @@ class Runner(object):
             loader_list = []
             trans_dic = self.opts['transform_params'] if s == 'train' else {}
             for name in self.name_list:
-                print("dataset name:")
-                print(name)
-                print("trans_dic")
-                print(trans_dic)
                 d = get_dataset(name)(phase=s, transform_params=trans_dic,
                                       use_background_channel=use_background_channel, **d_opts[name])
                 dataset_list.append(d)
                 loader_opts = self.opts.dataloader[s]
                 if s == 'train' and 'batch_size_dic' in d_opts:
                     loader_opts['batch_size'] = d_opts['batch_size_dic'][name]
-                print("s:")
-                print(s)
-                print("d: ")
-                print(d)
-                print("len(d): ")
-                print(len(d))
-                print("loader_opts:")
-                print(loader_opts)
                 l = DataLoader(d, **loader_opts)
                 loader_list.append(l)
             setattr(self, s + '_dataset_list', dataset_list)

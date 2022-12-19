@@ -93,6 +93,8 @@ class Cephalometric(data.Dataset):
         '''Read image from path and return a numpy.ndarray in shape of cxwxh
         '''
         # width x height:1935 x 2400, channel:3
+        print("readImage - path:")
+        print(path)
         img = Image.open(path)
         origin_size = img.size
 
