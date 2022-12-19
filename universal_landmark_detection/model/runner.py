@@ -47,6 +47,8 @@ class Runner(object):
             for name in self.name_list:
                 print("dataset name:")
                 print(name)
+                print("trans_dic")
+                print(trans_dic)
                 d = get_dataset(name)(phase=s, transform_params=trans_dic,
                                       use_background_channel=use_background_channel, **d_opts[name])
                 dataset_list.append(d)
