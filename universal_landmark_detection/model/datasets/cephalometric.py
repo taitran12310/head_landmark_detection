@@ -11,7 +11,9 @@ from ..utils import gaussianHeatmap, transformer
 class Cephalometric(data.Dataset):
 
     def __init__(self, prefix, phase, transform_params=dict(), sigma=10, num_landmark=19, size=[640, 800], use_background_channel=False):
-
+        print("cephalometric.py - ___init__ -【START】")
+        print("prefix")
+        print(prefix)
         self.transform = transformer(transform_params)
         self.size = tuple(size)
         self.num_landmark = num_landmark
@@ -39,6 +41,7 @@ class Cephalometric(data.Dataset):
         # self.pth_label_junior = './missing_landmarks'
         # self.pth_label_senior = './missing_landmarks'
         # self.indexes = [i[:-4] for i in sorted(os.listdir(self.pth_Image))]
+        print("cephalometric.py - ___init__ -【END】")
 
     def __getitem__(self, index):
         name = self.indexes[index]
