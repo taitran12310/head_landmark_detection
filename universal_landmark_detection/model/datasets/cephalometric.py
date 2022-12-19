@@ -14,6 +14,8 @@ class Cephalometric(data.Dataset):
         print("cephalometric.py - ___init__ -【START】")
         print("prefix")
         print(prefix)
+        print("phase")
+        print(phase)
         self.transform = transformer(transform_params)
         self.size = tuple(size)
         self.num_landmark = num_landmark
