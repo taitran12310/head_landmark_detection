@@ -213,7 +213,7 @@ if __name__ == "__main__":
     for d in os.listdir(args.input):
         inp = os.path.join(args.input, d)
         if os.path.isdir(inp):
-            phy_dis, pixel_dis = evaluate(inp, os.path.join(output, d), args.save_image //True,
+            phy_dis, pixel_dis = evaluate(inp, os.path.join(output, d), args.save_image, # True
                                           args.assigned, args.draw_text)
             phy_dis = np2py(phy_dis)
             pixel_dis = np2py(pixel_dis)
