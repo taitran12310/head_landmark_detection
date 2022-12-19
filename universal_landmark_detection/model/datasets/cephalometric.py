@@ -22,8 +22,10 @@ class Cephalometric(data.Dataset):
 
         # file index
         files = [i[:-4] for i in sorted(os.listdir(self.pth_Image))]
+        print("files")
+        print(files)
         n = len(files)
-        
+
         if phase == 'train':
             self.indexes = files[:130]
         elif phase == 'validate':
@@ -39,7 +41,6 @@ class Cephalometric(data.Dataset):
         # self.pth_label_junior = './missing_landmarks'
         # self.pth_label_senior = './missing_landmarks'
         # self.indexes = [i[:-4] for i in sorted(os.listdir(self.pth_Image))]
-        print("cephalometric.py - ___init__ -【END】")
 
     def __getitem__(self, index):
         name = self.indexes[index]
