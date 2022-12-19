@@ -208,6 +208,7 @@ if __name__ == "__main__":
 
     dic = {}
     pixel_dic = {}
+    output = args.input
     if not args.output:
         output = os.path.join(args.output, 'eval')
     for d in os.listdir(args.input):
