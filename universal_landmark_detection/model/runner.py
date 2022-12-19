@@ -287,10 +287,23 @@ class Runner(object):
         self.train_loss = 0  # sum of different datasets' arithmetic mean
         allep = self.opts.epochs
         use_scheduler = self.opts.learning.use_scheduler
+        print("self.train_name_list")
+        print(self.train_name_list)
+        print("self.train_loader_list")
+        print(self.train_loader_list)
+        
+
         for task_idx, (name, loader) in enumerate(zip(self.train_name_list, self.train_loader_list)):
             batch_num = len(loader)
             cur_loss = 0
+            print("name")
+            print(name)
+            print("loader")
+            print(loader)
             for i, data_dic in enumerate(loader):
+                print("data_dic")
+                print(data_dic)
+
                 if isinstance(data_dic, tuple):
                     task_idx = data_dic[1]
                     data_dic = data_dic[0]
